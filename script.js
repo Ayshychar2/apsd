@@ -71,3 +71,41 @@ accordionItems.forEach((item) => {
     if (!isOpen) item.classList.add('is-open');
   });
 });
+
+const reelCards = document.querySelectorAll('.reel-card');
+reelCards.forEach((card) => {
+  const video = card.querySelector('video');
+  const button = card.querySelector('.reel-audio');
+  if (!video || !button) return;
+  button.classList.add('is-muted');
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isMuted = video.muted;
+    if (isMuted) {
+      reelCards.forEach((otherCard) => {
+        const otherVideo = otherCard.querySelector('video');
+        const otherButton = otherCard.querySelector('.reel-audio');
+        if (!otherVideo || !otherButton || otherVideo === video) return;
+        otherVideo.muted = true;
+        otherVideo.setAttribute('muted', '');
+        otherButton.classList.add('is-muted');
+        otherButton.setAttribute('aria-pressed', 'false');
+        otherButton.setAttribute('aria-label', 'Listen to reel');
+      });
+      video.muted = false;
+      video.removeAttribute('muted');
+      video.volume = 1;
+      button.classList.remove('is-muted');
+      button.setAttribute('aria-pressed', 'true');
+      button.setAttribute('aria-label', 'Mute reel');
+      video.play();
+    } else {
+      video.muted = true;
+      video.setAttribute('muted', '');
+      button.classList.add('is-muted');
+      button.setAttribute('aria-pressed', 'false');
+      button.setAttribute('aria-label', 'Listen to reel');
+    }
+  });
+});

@@ -60,7 +60,7 @@ button {
 .btn.ghost {
   border: 1px solid var(--text);
   padding: 10px 26px;
-  border-radius: 12px;
+  
   font-weight: 600;
   transition: all 0.2s ease;
 }
@@ -278,10 +278,40 @@ button {
 }
 
 .reel-card {
- border-radius: 10px !important;
+  position: relative;
+
   overflow: hidden;
   background: #fff;
   aspect-ratio: 9 / 16;
+}
+
+.reel-audio {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.reel-card:hover .reel-audio {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.reel-audio svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .center-actions {
@@ -297,7 +327,7 @@ button {
 
 .process-card {
   border: 1px solid var(--border);
-  border-radius: 16px;
+  
   padding: 24px;
   display: grid;
   gap: 12px;
@@ -385,33 +415,11 @@ button {
 }
 
 .comparison-arrow {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--border);
-  display: grid;
-  place-items: center;
-  position: relative;
-}
-
-.comparison-arrow::before {
-  content: "";
-  width: 26px;
-  height: 2px;
-  background: var(--text);
-  display: block;
-}
-
-.comparison-arrow::after {
-  content: "";
-  position: absolute;
-  right: 18px;
-  width: 0;
-  height: 0;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-left: 10px solid var(--text);
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  justify-self: center;
+  align-self: center;
 }
 
 .posts-grid {
@@ -422,10 +430,85 @@ button {
 
 .post {
   aspect-ratio: 1;
-   border-radius: 10px !important;
+  
   background-image: var(--img);
   background-size: cover;
   background-position: center;
+}
+
+.ads-marquee {
+  background-color: #FAF8F4;
+  padding: 64px 0;
+  overflow: hidden;
+}
+
+.ads-marquee .section-heading {
+  margin-bottom: 28px;
+}
+
+.ads-marquee-track {
+  display: inline-flex;
+  gap: 24px;
+  min-width: max-content;
+  animation: ads-scroll 28s linear infinite;
+}
+
+.ads-marquee-row {
+  display: inline-flex;
+  gap: 24px;
+}
+
+.ads-marquee-image {
+  width: 220px;
+  height: 300px;
+  border-radius: 0;
+  object-fit: cover;
+  flex: 0 0 auto;
+  background: #fff;
+  box-shadow: 0 18px 36px rgba(30, 30, 30, 0.12);
+}
+
+.ads-marquee:hover .ads-marquee-track {
+  animation-play-state: paused;
+}
+
+.composition {
+  background: white;
+}
+
+.composition .container {
+  width: min(820px, 92%);
+}
+
+.composition-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.composition-media {
+  border-radius: 0;
+  overflow: hidden;
+  width: min(720px, 100%);
+  box-shadow: 0 22px 40px rgba(30, 30, 30, 0.12);
+}
+
+.composition-text {
+  max-width: 560px;
+}
+
+.composition-text h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 600;
+}
+
+.composition-text p {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
 .marquee {
@@ -613,6 +696,11 @@ button {
   color: rgba(250, 248, 244, 0.7);
 }
 
+@keyframes ads-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -634,7 +722,8 @@ button {
 
   .split-grid,
   .banner-content,
-  .comparison-grid {
+  .comparison-grid,
+  .composition-grid {
     grid-template-columns: 1fr;
   }
 
@@ -643,6 +732,11 @@ button {
   .posts-grid,
   .trust-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ads-marquee-image {
+    width: 180px;
+    height: 250px;
   }
 
   .cta-inner {
@@ -660,6 +754,11 @@ button {
   .posts-grid,
   .trust-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ads-marquee-image {
+    width: 160px;
+    height: 220px;
   }
 
   .hero {
