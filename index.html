@@ -26,34 +26,38 @@
 
   <main>
     <section class="hero" id="work">
-      <div class="hero-slider" data-slider="hero">
-        <div class="hero-slide is-active">
-          <div class="hero-media" style="--img: url('assests/banners/Brown%20Cream%20%20Minimalist%20Modern%20Promotion%20Special%20Offer%20Banner%20(1).png');"></div>
-        </div>
-        <div class="hero-slide">
-          <div class="hero-media" style="--img: url('assests/banners/Cream%20Olive%20Green%20Minimalist%20Classic%20Promotion%20Special%20Offer%20Discount%20Banner.png');"></div>
-        </div>
-        <div class="hero-dots" role="tablist"></div>
-        <div class="hero-arrows">
-          <button class="hero-arrow" data-hero-prev aria-label="Previous slide">❮</button>
-          <button class="hero-arrow" data-hero-next aria-label="Next slide">❯</button>
-        </div>
+      <div class="hero-media">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+          <source src="assests/banners/video-banner/hero-video-b.mp4" type="video/mp4" />
+        </video>
       </div>
     </section>
 
-    <section class="rich-text">
+    <section class="rich-text bg-black">
       <div class="container">
         <h2>About Ourself</h2>
         <p>We craft refined product visuals for brands — built for clarity, balance, and modern platforms.</p>
       </div>
     </section>
 
-    <section class="reels section">
+    <section class="reels section bg-black">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading has-mobile-controls">
           <h2>Our Created Reels</h2>
+          <div class="mobile-slider-controls">
+            <button class="slider-arrow" data-scroll-target="reels-grid" data-direction="prev" aria-label="Previous reels">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button class="slider-arrow" data-scroll-target="reels-grid" data-direction="next" aria-label="Next reels">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="reels-grid">
+        <div class="reels-grid" id="reels-grid">
           <div class="reel-card">
             <video muted loop autoplay playsinline preload="auto">
               <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.42.mp4" type="video/mp4" />
@@ -159,10 +163,22 @@
 
     <section class="posts section bg-white" id="posts">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading has-mobile-controls">
           <h2>Posts / Ads</h2>
+          <div class="mobile-slider-controls">
+            <button class="slider-arrow" data-scroll-target="posts-grid" data-direction="prev" aria-label="Previous posts">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button class="slider-arrow" data-scroll-target="posts-grid" data-direction="next" aria-label="Next posts">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="posts-grid">
+        <div class="posts-grid" id="posts-grid">
           <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.52.jpeg');"></div>
           <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.54.jpeg');"></div>
           <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.50.jpeg');"></div>
@@ -178,7 +194,7 @@
       </div>
     </section>
 
-    <section class="process section bg-white" id="process">
+    <section class="process section bg-black" id="process">
       <div class="container">
         <div class="section-heading">
           <h2>Our Creative Process</h2>
@@ -211,7 +227,7 @@
     <section class="banner section">
       <div class="banner-media">
         <video class="banner-video" autoplay muted loop playsinline preload="auto">
-          <source src="assests/banners/video-banner/Beige%20Brown%20Minimal%20New%20year%20Sale%20Promotional%20Banner%20(1).mp4" type="video/mp4" />
+          <source src="assests/banners/video-banner/video-b.mp4" type="video/mp4" />
         </video>
        
     </section>
@@ -226,7 +242,7 @@
       </div>
     </section>
 
-    <section class="split section bg-white">
+    <section class="split section bg-black">
       <div class="container split-grid reverse">
         <div class="split-text">
           <h2>Clean Packaging Stories</h2>
@@ -236,7 +252,7 @@
       </div>
     </section>
 
-    <section class="comparison section">
+    <section class="comparison section bg-white">
       <div class="container">
         <div class="section-heading">
           <h2>Before &amp; After</h2>
@@ -317,7 +333,7 @@
     </section>
 
 
-    <section class="faq section" id="faq">
+    <section class="faq section bg-black" id="faq">
       <div class="container">
         <div class="section-heading">
           <span class="section-label">Trusted By</span>

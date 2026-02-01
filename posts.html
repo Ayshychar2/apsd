@@ -27,10 +27,22 @@
   <main>
     <section class="posts section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading has-mobile-controls">
           <h2>All Posts</h2>
+          <div class="mobile-slider-controls">
+            <button class="slider-arrow" data-scroll-target="posts-grid" data-direction="prev" aria-label="Previous posts">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button class="slider-arrow" data-scroll-target="posts-grid" data-direction="next" aria-label="Next posts">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="posts-grid">
+        <div class="posts-grid" id="posts-grid">
           <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.52.jpeg');"></div>
           <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.54.jpeg');"></div>
           <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.50.jpeg');"></div>

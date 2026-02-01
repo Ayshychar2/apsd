@@ -109,3 +109,23 @@ reelCards.forEach((card) => {
     }
   });
 });
+
+const scrollButtons = document.querySelectorAll('[data-scroll-target]');
+scrollButtons.forEach((button) => {
+  const targetId = button.getAttribute('data-scroll-target');
+  const direction = button.getAttribute('data-direction');
+  const container = document.getElementById(targetId);
+  if (!container) return;
+  button.addEventListener('click', () => {
+    const firstItem = container.firstElementChild;
+    const styles = window.getComputedStyle(container);
+    const gapValue = styles.columnGap || styles.gap || '0';
+    const gap = Number.parseFloat(gapValue) || 0;
+    const itemWidth = firstItem ? firstItem.getBoundingClientRect().width : container.clientWidth * 0.8;
+    const scrollAmount = itemWidth + gap;
+    container.scrollBy({
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth',
+    });
+  });
+});

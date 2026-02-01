@@ -27,10 +27,22 @@
   <main>
     <section class="reels section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading has-mobile-controls">
           <h2>All Reels</h2>
+          <div class="mobile-slider-controls">
+            <button class="slider-arrow" data-scroll-target="reels-grid" data-direction="prev" aria-label="Previous reels">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button class="slider-arrow" data-scroll-target="reels-grid" data-direction="next" aria-label="Next reels">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="reels-grid">
+        <div class="reels-grid" id="reels-grid">
           <div class="reel-card">
             <video muted loop autoplay playsinline preload="auto">
               <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.42.mp4" type="video/mp4" />
