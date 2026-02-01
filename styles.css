@@ -49,6 +49,47 @@ button {
   cursor: pointer;
 }
 
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--header-footer);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 9999;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-track {
+  width: min(320px, 70%);
+  height: 6px;
+  background: rgba(194, 232, 255, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.loader-bar {
+  height: 100%;
+  width: 0;
+  background: var(--section-a);
+  transition: width 0.2s ease;
+}
+
+.loader-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--on-dark);
+}
+
 .container {
   width: min(1200px, 92%);
   margin: 0 auto;
@@ -305,6 +346,7 @@ button {
   background-image: var(--img);
   background-size: cover;
   background-position: center;
+  background-color: var(--off);
 }
 
 .section-heading {
@@ -457,6 +499,7 @@ button {
   background-size: cover;
   background-position: center;
   aspect-ratio: 1;
+  background-color: var(--off);
   
 }
 section.comparison.section {
@@ -482,6 +525,7 @@ section.comparison.section {
   background-image: var(--img);
   background-size: cover;
   background-position: center;
+  background-color: var(--off);
 }
 
 .ads-marquee {
@@ -857,7 +901,7 @@ section.comparison.section {
   }
 
   .hero {
-    height: 80vh;
+    height: 58vh;
   }
 
   .hero-media {

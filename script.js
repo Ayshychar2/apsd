@@ -63,6 +63,101 @@ const initSlider = (root, options = {}) => {
 
 const hero = initSlider(heroSlider, { interval: 5200 });
 
+const pageLoader = document.getElementById('page-loader');
+const loaderBar = document.getElementById('loader-bar');
+const preloadTargets = Array.from(document.querySelectorAll('[data-preload="true"]'));
+if (pageLoader && loaderBar) {
+  let loadedCount = 0;
+  const totalCount = preloadTargets.length;
+  const updateLoader = () => {
+    const progress = totalCount ? Math.min(1, loadedCount / totalCount) : 1;
+    loaderBar.style.width = `${Math.round(progress * 100)}%`;
+    if (progress >= 1) {
+      setTimeout(() => pageLoader.classList.add('is-hidden'), 200);
+    }
+  };
+  const markLoaded = () => {
+    loadedCount += 1;
+    updateLoader();
+  };
+  if (!totalCount) {
+    pageLoader.classList.add('is-hidden');
+  } else {
+    preloadTargets.forEach((el) => {
+      if (el.tagName === 'VIDEO') {
+        if (el.readyState >= 2) {
+          markLoaded();
+          return;
+        }
+        const onLoaded = () => {
+          markLoaded();
+          el.removeEventListener('loadeddata', onLoaded);
+          el.removeEventListener('error', onLoaded);
+        };
+        el.addEventListener('loadeddata', onLoaded);
+        el.addEventListener('error', onLoaded);
+        return;
+      }
+      if (el.tagName === 'IMG') {
+        if (el.complete) {
+          markLoaded();
+          return;
+        }
+        el.addEventListener('load', markLoaded, { once: true });
+        el.addEventListener('error', markLoaded, { once: true });
+        return;
+      }
+      markLoaded();
+    });
+    window.addEventListener('load', () => {
+      pageLoader.classList.add('is-hidden');
+    });
+  }
+}
+
+const loadLazyVideo = (video) => {
+  if (!video || !video.hasAttribute('data-lazy')) return;
+  const sources = Array.from(video.querySelectorAll('source[data-src]'));
+  if (!sources.length) return;
+  sources.forEach((source) => {
+    source.src = source.dataset.src;
+    source.removeAttribute('data-src');
+  });
+  video.removeAttribute('data-lazy');
+  video.load();
+  if (video.autoplay) {
+    video.play().catch(() => {});
+  }
+};
+
+const lazyObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const target = entry.target;
+        if (target.dataset && target.dataset.bg) {
+          target.style.setProperty('--img', `url('${target.dataset.bg}')`);
+          target.removeAttribute('data-bg');
+        }
+        if (target.tagName === 'VIDEO') {
+          loadLazyVideo(target);
+        }
+        observer.unobserve(target);
+      });
+    }, { rootMargin: '200px 0px', threshold: 0.1 })
+  : null;
+
+if (lazyObserver) {
+  document.querySelectorAll('[data-bg]').forEach((el) => lazyObserver.observe(el));
+  document.querySelectorAll('video[data-lazy]').forEach((video) => lazyObserver.observe(video));
+} else {
+  document.querySelectorAll('[data-bg]').forEach((el) => {
+    el.style.setProperty('--img', `url('${el.dataset.bg}')`);
+    el.removeAttribute('data-bg');
+  });
+  document.querySelectorAll('video[data-lazy]').forEach((video) => loadLazyVideo(video));
+}
+
 const accordionItems = document.querySelectorAll('.accordion-item');
 accordionItems.forEach((item) => {
   item.addEventListener('click', () => {
@@ -81,6 +176,9 @@ reelCards.forEach((card) => {
   button.setAttribute('aria-pressed', 'false');
   button.addEventListener('click', (event) => {
     event.stopPropagation();
+    if (video.hasAttribute('data-lazy')) {
+      loadLazyVideo(video);
+    }
     const isMuted = video.muted;
     if (isMuted) {
       reelCards.forEach((otherCard) => {
@@ -108,6 +206,13 @@ reelCards.forEach((card) => {
       button.setAttribute('aria-label', 'Listen to reel');
     }
   });
+});
+
+document.querySelectorAll('img').forEach((img) => {
+  if (!img.loading) {
+    img.loading = 'lazy';
+  }
+  img.decoding = 'async';
 });
 
 const scrollButtons = document.querySelectorAll('[data-scroll-target]');

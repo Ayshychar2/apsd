@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="page-loader" id="page-loader" aria-hidden="true">
+    <div class="loader-track">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+    <span class="loader-text">Loading</span>
+  </div>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">APSD Studio</div>
@@ -27,7 +33,7 @@
   <main>
     <section class="hero" id="work">
       <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" data-preload="true">
           <source src="assests/banners/video-banner/hero-video-b.mp4" type="video/mp4" />
         </video>
       </div>
@@ -59,8 +65,8 @@
         </div>
         <div class="reels-grid" id="reels-grid">
           <div class="reel-card">
-            <video muted loop autoplay playsinline preload="auto">
-              <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.42.mp4" type="video/mp4" />
+            <video muted loop autoplay playsinline preload="none" data-lazy="true">
+              <source data-src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.42.mp4" type="video/mp4" />
             </video>
             <button class="reel-audio" aria-label="Listen to reel">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -71,8 +77,8 @@
             </button>
           </div>
           <div class="reel-card">
-            <video muted loop autoplay playsinline preload="auto">
-              <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.42%20(1).mp4" type="video/mp4" />
+            <video muted loop autoplay playsinline preload="none" data-lazy="true">
+              <source data-src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.42%20(1).mp4" type="video/mp4" />
             </video>
             <button class="reel-audio" aria-label="Listen to reel">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -83,8 +89,8 @@
             </button>
           </div>
           <div class="reel-card">
-            <video muted loop autoplay playsinline preload="auto">
-              <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.41.mp4" type="video/mp4" />
+            <video muted loop autoplay playsinline preload="none" data-lazy="true">
+              <source data-src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.41.mp4" type="video/mp4" />
             </video>
             <button class="reel-audio" aria-label="Listen to reel">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -95,8 +101,8 @@
             </button>
           </div>
           <div class="reel-card">
-            <video muted loop autoplay playsinline preload="auto">
-              <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.41%20(1).mp4" type="video/mp4" />
+            <video muted loop autoplay playsinline preload="none" data-lazy="true">
+              <source data-src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.41%20(1).mp4" type="video/mp4" />
             </video>
             <button class="reel-audio" aria-label="Listen to reel">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -107,8 +113,8 @@
             </button>
           </div>
           <div class="reel-card">
-            <video muted loop autoplay playsinline preload="auto">
-              <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.40.mp4" type="video/mp4" />
+            <video muted loop autoplay playsinline preload="none" data-lazy="true">
+              <source data-src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.40.mp4" type="video/mp4" />
             </video>
             <button class="reel-audio" aria-label="Listen to reel">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -119,8 +125,8 @@
             </button>
           </div>
           <div class="reel-card">
-            <video muted loop autoplay playsinline preload="auto">
-              <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.40%20(1).mp4" type="video/mp4" />
+            <video muted loop autoplay playsinline preload="none" data-lazy="true">
+              <source data-src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.40%20(1).mp4" type="video/mp4" />
             </video>
             <button class="reel-audio" aria-label="Listen to reel">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -131,8 +137,8 @@
             </button>
           </div>
           <div class="reel-card">
-            <video muted loop autoplay playsinline preload="auto">
-              <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.10.mp4" type="video/mp4" />
+            <video muted loop autoplay playsinline preload="none" data-lazy="true">
+              <source data-src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.10.mp4" type="video/mp4" />
             </video>
             <button class="reel-audio" aria-label="Listen to reel">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -143,8 +149,8 @@
             </button>
           </div>
           <div class="reel-card">
-            <video muted loop autoplay playsinline preload="auto">
-              <source src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.05.mp4" type="video/mp4" />
+            <video muted loop autoplay playsinline preload="none" data-lazy="true">
+              <source data-src="assests/reels/WhatsApp%20Video%202026-01-28%20at%2022.41.05.mp4" type="video/mp4" />
             </video>
             <button class="reel-audio" aria-label="Listen to reel">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -179,14 +185,14 @@
           </div>
         </div>
         <div class="posts-grid" id="posts-grid">
-          <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.52.jpeg');"></div>
-          <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.54.jpeg');"></div>
-          <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.50.jpeg');"></div>
-          <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.53.jpeg');"></div>
-          <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.50%20(1).jpeg');"></div>
-          <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.53%20(3).jpeg');"></div>
-          <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.49.jpeg');"></div>
-          <div class="post" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.53%20(2).jpeg');"></div>
+          <div class="post" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.52.jpeg"></div>
+          <div class="post" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.54.jpeg"></div>
+          <div class="post" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.50.jpeg"></div>
+          <div class="post" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.53.jpeg"></div>
+          <div class="post" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.50%20(1).jpeg"></div>
+          <div class="post" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.53%20(3).jpeg"></div>
+          <div class="post" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.49.jpeg"></div>
+          <div class="post" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.53%20(2).jpeg"></div>
         </div>
         <div class="center-actions">
           <a class="btn ghost" href="posts.html">View All Posts</a>
@@ -226,8 +232,8 @@
 
     <section class="banner section">
       <div class="banner-media">
-        <video class="banner-video" autoplay muted loop playsinline preload="auto">
-          <source src="assests/banners/video-banner/video-b.mp4" type="video/mp4" />
+        <video class="banner-video" autoplay muted loop playsinline preload="none" data-lazy="true">
+          <source data-src="assests/banners/video-banner/video-b.mp4" type="video/mp4" />
         </video>
        
     </section>
@@ -238,7 +244,7 @@
           <h2>Product Reels & Posts</h2>
           <p>We turn raw product clips and photos into clean, publish-ready reels and posts for social platforms.</p>
         </div>
-        <div class="split-image" style="--img: url('assests/posts/K%20(7).png');"></div>
+        <div class="split-image" data-bg="assests/posts/K%20(7).png"></div>
       </div>
     </section>
 
@@ -248,7 +254,7 @@
           <h2>Clean Packaging Stories</h2>
           <p>Balanced layouts that let ingredients and benefits take center stage.</p>
         </div>
-        <div class="split-image" style="--img: url('assests/posts/K%20(2).png');"></div>
+        <div class="split-image" data-bg="assests/posts/K%20(2).png"></div>
       </div>
     </section>
 
@@ -260,12 +266,12 @@
         <div class="comparison-grid">
           <div class="comparison-item">
             <span>Before</span>
-            <div class="comparison-image" style="--img: url('assests/posts/Untitled design.png');"></div>
+            <div class="comparison-image" data-bg="assests/posts/Untitled design.png"></div>
           </div>
           <img class="comparison-arrow" src="assests/curve-arrow.png" alt="" aria-hidden="true" />
           <div class="comparison-item">
             <span>After</span>
-            <div class="comparison-image" style="--img: url('assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.49.jpeg');"></div>
+            <div class="comparison-image" data-bg="assests/posts/WhatsApp%20Image%202026-01-28%20at%2022.41.49.jpeg"></div>
           </div>
         </div>
       </div>
@@ -304,8 +310,8 @@
     <section class="composition section">
       <div class="container composition-grid">
         <div class="composition-media">
-          <video autoplay muted loop playsinline preload="auto">
-            <source src="assests/compostion/WhatsApp%20Video%202026-01-29%20at%2015.06.35.mp4" type="video/mp4" />
+          <video autoplay muted loop playsinline preload="none" data-lazy="true">
+            <source data-src="assests/compostion/WhatsApp%20Video%202026-01-29%20at%2015.06.35.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="composition-text">
